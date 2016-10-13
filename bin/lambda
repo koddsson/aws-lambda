@@ -1,18 +1,14 @@
 #!/usr/bin/env node
 
-var 
-dotenv = require( "dotenv" ),
-lambda = require( "../lib/main.js" ),
-program = require( "commander" );
-
-dotenv.load( );
+var lambda = require( "../lib/main.js" );
+var program = require( "commander" );
 
 program
   .usage('deploy <file>')
   .command( "deploy <file>" )
   .description( "Deploy your application to Amazon Lambda" )
   .action( function( prg, options ) {
-	lambda.deploy( prg );
-  } );
+    lambda.deploy(prg);
+  });
 
 program.parse( process.argv );
